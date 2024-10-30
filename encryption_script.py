@@ -65,4 +65,4 @@ def encrypt_directory(directory):
 generate_rsa_keys()
 
 # Encrypt the 'critical' directory
-encrypt_directory('critical')
+encrypt_directory('/Users/txsoc/OneDrive/csce_5550_project/critical')

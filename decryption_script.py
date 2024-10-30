@@ -8,7 +8,7 @@ from Crypto.Random import get_random_bytes
 # Function to decrypt an inputted file
 def decrypt_file(input_file):
     # Load the RSA private key
-    with open('private.pem', 'rb') as priv_file:
+    with open('/Users/txsoc/Downloads/private.pem', 'rb') as priv_file:
         private_key = RSA.import_key(priv_file.read())
 
     cipher_rsa = PKCS1_OAEP.new(private_key)
@@ -51,4 +51,4 @@ def decrypt_directory(directory):
                 file_path = os.path.join(root, file)
                 decrypt_file(file_path)
 
-decrypt_directory('critical')
+decrypt_directory('/Users/txsoc/OneDrive/csce_5550_project/critical')
