@@ -43,16 +43,16 @@ def send_email(subject, body):
 
 class MyEventHandler(FileSystemEventHandler):
     def __init__(self, connection, observer, debounce_time=0.35):
-        self.connection = connection
-        self.cursor = self.connection.cursor()
-        self.observer = observer
+        self.connection = connection  # SQLite database connection
+        self.cursor = self.connection.cursor()  # Cursor for executing SQL commands
+        self.observer = observer # Observer instance to manage file system events
         self.debounce_time = debounce_time
         self.last_event_time = 0
         self.threshold = 2
         self.time_window = 5
-        self.file_modified_count = 0
-        self.file_add_count = 0
-        self.file_remove_count = 0
+        self.file_modified_count = 0  # Counter for modified files
+        self.file_add_count = 0  # Counter for added files
+        self.file_remove_count = 0  # Counter for removed files
 
     # Method to monitor modified, added, and deleted file events
     def on_any_event(self, event) -> None:
@@ -116,7 +116,7 @@ observer = Observer()
 event_handler = MyEventHandler(connection, observer)
 
 # Start observing the directory
-observer.schedule(event_handler, "/Users/txsoc/OneDrive/csce_5550_project/critical", recursive=True)
+observer.schedule(event_handler, "/path/to/critical/directory", recursive=True)
 observer.start()
 
 try:
