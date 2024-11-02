@@ -50,4 +50,4 @@ def decrypt_directory(directory):
                 file_path = os.path.join(root, file)
                 decrypt_file(file_path)
 
-decrypt_directory('/Users/txsoc/OneDrive/csce_5550_project/critical')
+decrypt_directory('/path/to/critical/directory')
