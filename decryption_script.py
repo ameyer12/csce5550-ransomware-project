@@ -7,7 +7,7 @@ from Crypto.Cipher import PKCS1_OAEP
 # Function to decrypt an inputted file
 def decrypt_file(input_file):
     # Load the RSA private key
-    with open('/Users/txsoc/OneDrive/Documents/private.pem', 'rb') as priv_file:
+    with open('/Path/to/private.pem', 'rb') as priv_file:
         private_key = RSA.import_key(priv_file.read())
 
     cipher_rsa = PKCS1_OAEP.new(private_key)
